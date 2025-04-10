@@ -1,0 +1,28 @@
+<%- include("../partials/adminHeader") %>
+
+<div class="page-wrapper">
+  <div class="container-fluid">
+
+    <!-- Bootstrap Nav Tabs Example -->
+    <ul class="nav nav-tabs mb-3" id="crudTab" role="tablist">
+      <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#categoryTab">Category</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#subCategoryTab">Sub-Category</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#extraCategoryTab">Extra-Category</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="categoryTab">
+        <%- include("../partials/categoryForm") %>
+      </div>
+      <div class="tab-pane fade" id="subCategoryTab">
+        <%- include("../partials/subCategoryForm") %>
+      </div>
+      <div class="tab-pane fade" id="extraCategoryTab">
+        <%- include("../partials/extCategoryForm") %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%- include("../partials/adminFooter") %>

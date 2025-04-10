@@ -1,0 +1,41 @@
+<!-- CREATE/UPDATE FORM -->
+<form action="/myCat/createCat" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="" />
+
+  <label>Category Name</label>
+  <input type="text" name="name" value="" required />
+
+  <label>Image</label>
+  <input type="file" name="image" />
+
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<!-- TABLE TO SHOW & DELETE -->
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%catData.forEach((cat,index)=>{ %>
+    <tr>
+      <td><%=index+1%></td>
+      <td><%=cat.name%></td>
+      <td><img src="/<%=cat.image%>" width="50px" alt="" /></td>
+      <td>
+        <a href="/myCat/category/edit/<%=cat.id%>" class="btn btn-warning btn-sm"
+          >Edit</a
+        >
+        <a href="/myCat/category/delete/<%=cat.id%>" class="btn btn-danger btn-sm"
+          >Delete</a
+        >
+      </td>
+    </tr>
+    <%})%>
+  </tbody>
+</table>
