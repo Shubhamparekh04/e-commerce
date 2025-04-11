@@ -1,4 +1,5 @@
 const categoryModel = require("../models/categoryModel");
+const extCategoryModel = require("../models/extCategoryModel");
 const subCategoryModel = require("../models/subCategoryModel");
 const fs = require("fs");
 
@@ -19,8 +20,8 @@ module.exports.delCat = async (req, res) => {
   try {
     const { id } = req.params;
     const cat = await categoryModel.findByIdAndDelete(id);
-
     await subCategoryModel.deleteMany({ categoryId : id });
+    await extCategoryModel.deleteMany({ categoryId: id });
 
 
     fs.unlinkSync(cat.image);

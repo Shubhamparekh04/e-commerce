@@ -1,9 +1,9 @@
-// const { Router } = require("express");
+const { Router } = require("express");
 
-// const clientRouter = Router();
+const clientRouter = Router();
 
-// const clientController = require("../controllers/clientController");
+const clientController = require("../controllers/clientController");
 
-// clientRouter.get("/clientHome", clientController.homePage);
+clientRouter.get("/clientHome", clientController.homePage);
 
-// module.exports = clientRouter;
+module.exports = clientRouter;

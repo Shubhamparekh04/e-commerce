@@ -1,23 +1,30 @@
 <%- include("../partials/adminHeader") %>
 
 <div class="page-wrapper">
-  <div class="container-fluid">
+  <div class="container-fluid py-4">
 
-    <!-- Bootstrap Nav Tabs Example -->
-    <ul class="nav nav-tabs mb-3" id="crudTab" role="tablist">
-      <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#categoryTab">Category</a></li>
-      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#subCategoryTab">Sub-Category</a></li>
-      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#extraCategoryTab">Extra-Category</a></li>
+    <!-- Bootstrap Nav Tabs -->
+    <ul class="nav nav-tabs mb-4" id="crudTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="category-tab" data-bs-toggle="tab" data-bs-target="#categoryTab" type="button" role="tab">Category</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="subcategory-tab" data-bs-toggle="tab" data-bs-target="#subCategoryTab" type="button" role="tab">Sub-Category</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="extracategory-tab" data-bs-toggle="tab" data-bs-target="#extraCategoryTab" type="button" role="tab">Extra-Category</button>
+      </li>
     </ul>
 
-    <div class="tab-content">
-      <div class="tab-pane fade show active" id="categoryTab">
+    <!-- Tab Content -->
+    <div class="tab-content bg-white p-4 shadow rounded-3">
+      <div class="tab-pane fade show active" id="categoryTab" role="tabpanel" aria-labelledby="category-tab">
         <%- include("../partials/categoryForm") %>
       </div>
-      <div class="tab-pane fade" id="subCategoryTab">
+      <div class="tab-pane fade" id="subCategoryTab" role="tabpanel" aria-labelledby="subcategory-tab">
         <%- include("../partials/subCategoryForm") %>
       </div>
-      <div class="tab-pane fade" id="extraCategoryTab">
+      <div class="tab-pane fade" id="extraCategoryTab" role="tabpanel" aria-labelledby="extracategory-tab">
         <%- include("../partials/extCategoryForm") %>
       </div>
     </div>
