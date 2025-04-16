@@ -83,31 +83,31 @@ E-COMMERCE/
 
 ### 🔷 Sub-Category Products
 
-![Sub-Category Products](E:\Repositories\Node js\E-commerce\public\screenshot\subcatproducts.png)
+![Sub-Category Products](public/screenshot/subcatproducts.png)
 
 ### 🔷 Single Product Page
 
-![Single Product Page](E:\Repositories\Node js\E-commerce\public\screenshot\singleproduct.png)
+![Single Product Page](public/screenshot/singleproduct.png)
 
 ### 🔷 Admin Login
 
-![Admin Login](E:\Repositories\Node js\E-commerce\public\screenshot\adminlogin.png)
+![Admin Login](public/screenshot/adminlogin.png)
 
 ### 🔷 Admin Dashboard
 
-![Admin Dashboard](E:\Repositories\Node js\E-commerce\public\screenshot\adminDash.png)
+![Admin Dashboard](public/screenshot/adminDash.png)
 
 ### 🔷 Add/Delete Category
 
-![Add Category](E:\Repositories\Node js\E-commerce\public\screenshot\category.png)
+![Add Category](public/screenshot/category.png)
 
 ### 🔷 Add/Delete Sub Category
 
-![Add Sub Category](E:\Repositories\Node js\E-commerce\public\screenshot\subcat.png)
+![Add Sub Category](public/screenshot/subcat.png)
 
 ### 🔷 Add/Delete Extra Category
 
-![Add Extra Category](E:\Repositories\Node js\E-commerce\public\screenshot\extracat.png)
+![Add Extra Category](public/screenshot/extracat.png)
 
 ## 🙋‍♂️ Author
 
