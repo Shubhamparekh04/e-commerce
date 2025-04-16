@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flipkart Clone</title>
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .navbar {
+        background-color: #2874f0 !important;
+      }
+
+      .navbar .navbar-brand,
+      .navbar .nav-link {
+        color: #fff !important;
+        font-size: 18px;
+      }
+
+      .navbar .dropdown-menu {
+        background-color: #fff;
+      }
+
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 1rem;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .img-wrapper {
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background-color: #f0f0f0;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      }
+
+      .img-wrapper img {
+        height: 100%;
+      }
+
+      .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        color: #555;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .badge {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+
+      .btn-view {
+        background-color: #ff9f00;
+        color: #fff;
+        font-weight: 500;
+      }
+
+      .btn-view:hover {
+        background-color: #fb8c00;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg px-3">
+      <a class="navbar-brand fw-bold" href="/">Flipkart</a>
+      <div class="collapse navbar-collapse">
+        <form class="d-flex w-50 mx-3">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search for Products, Brands and More"
+          />
+        </form>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle me-1"></i> Shubham
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="#"><i class="bi bi-cart4 me-1"></i> Cart</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Product Cards Section -->
+    <div class="container mt-5">
+      <h3 class="mb-4 text-primary fw-bold">
+        <%= extraData[0]?.subcategoryId?.name || 'Subcategory' %> Products
+      </h3>
+      <div class="row">
+        <% if (extraData.length > 0) { %>
+          <% extraData.forEach(extra => { %>
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4 d-flex align-items-stretch">
+              <div class="card shadow w-100">
+                <div class="img-wrapper">
+                  <a href="/extra/view/<%= extra._id %>">
+                    <img
+                      src="/uploads/<%= extra.image %>"
+                      alt="<%= extra.name %>"
+
+                      class="d-block mx-auto"
+                    />
+                  </a>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-primary" title="<%= extra.name %>">
+                    <%= extra.name %>
+                  </h5>
+                  <p class="card-text text-muted" title="<%= extra.description %>">
+                    <%= extra.description %>
+                  </p>
+                  <% if (extra.subcategoryId && extra.subcategoryId.name) { %>
+                    <span class="badge bg-secondary mb-2 align-self-start">
+                      <%= extra.subcategoryId.name %>
+                    </span>
+                  <% } %>
+                  <a
+                    href="/product/<%= extra._id %>"
+                    class="btn btn-view mt-auto shadow-sm"
+                  >
+                    View Details
+                  </a>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <div class="col-12">
+            <p class="text-muted text-center mt-4">
+              No extra categories found for this subcategory.
+            </p>
+          </div>
+        <% } %>
+      </div>
+    </div>
+
+
+    <!-- footer -->
+<!-- footer -->
+<footer class="bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- ABOUT -->
+      <div class="col-md-2 col-sm-6 mb-4">
+        <h6 class="text-uppercase text-secondary fw-semibold">About</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#" class="text-light text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">About Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Careers</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Flipkart Stories</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Press</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Corporate Information</a></li>
+        </ul>
+      </div>
+
+      <!-- GROUP COMPANIES -->
+      <div class="col-md-2 col-sm-6 mb-4">
+        <h6 class="text-uppercase text-secondary fw-semibold">Group Companies</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#" class="text-light text-decoration-none">Myntra</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Cleartrip</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Shopsy</a></li>
+        </ul>
+      </div>
+
+      <!-- HELP -->
+      <div class="col-md-2 col-sm-6 mb-4">
+        <h6 class="text-uppercase text-secondary fw-semibold">Help</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#" class="text-light text-decoration-none">Payments</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Shipping</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Cancellation & Returns</a></li>
+          <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- POLICY -->
+      <div class="col-md-2 col-sm-6 mb-4">
+        <h6 class="text-uppercase text-secondary fw-semibold">Consumer Policy</h6>
+        <ul class="list-unstyled small">
+          <li><a href="#" class="text-light text-decoration-none">Cancellation & Returns</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Terms Of Use</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Security</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Privacy</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Sitemap</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Grievance Redressal</a></li>
+          <li><a href="#" class="text-light text-decoration-none">EPR Compliance</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="col-md-4 col-sm-12 mb-4">
+        <h6 class="text-uppercase text-secondary fw-semibold">Mail Us:</h6>
+        <p class="small mb-2">
+          Flipkart Internet Private Limited,<br>
+          Buildings Alyssa, Begonia & Clove Embassy Tech Village,<br>
+          Outer Ring Road, Devarabeesanahalli Village,<br>
+          Bengaluru, 560103, Karnataka, India
+        </p>
+
+        <h6 class="text-uppercase text-secondary fw-semibold">Registered Office Address:</h6>
+        <p class="small mb-1">
+          Flipkart Internet Private Limited,<br>
+          Buildings Alyssa, Begonia & Clove Embassy Tech Village,<br>
+          Outer Ring Road, Devarabeesanahalli Village,<br>
+          Bengaluru, 560103, Karnataka, India
+        </p>
+        <p class="small mb-0">CIN: U51109KA2012PTC066107</p>
+        <p class="small">
+          Telephone:
+          <a href="tel:04445614700" class="text-info text-decoration-none">044-45614700</a> /
+          <a href="tel:04467415800" class="text-info text-decoration-none">044-67415800</a>
+        </p>
+
+        <div class="mt-3">
+          <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-instagram fs-5"></i></a>
+          <a href="#" class="text-light me-3"><i class="bi bi-twitter fs-5"></i></a>
+          <a href="#" class="text-light"><i class="bi bi-youtube fs-5"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="bg-secondary mt-0 mb-2">
+
+  <!-- Bottom Strip -->
+  <div class="container pb-2">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small text-muted">
+      <div class="d-flex flex-wrap gap-3 justify-content-center mb-2 mb-md-0">
+        <div><i class="bi bi-briefcase-fill text-warning me-1"></i>Become a Seller</div>
+        <div><i class="bi bi-megaphone-fill text-warning me-1"></i>Advertise</div>
+        <div><i class="bi bi-gift-fill text-warning me-1"></i>Gift Cards</div>
+        <div><i class="bi bi-question-circle-fill text-warning me-1"></i>Help Center</div>
+      </div>
+      <div>© 2007-2025 Flipkart.com</div>
+    </div>
+  </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

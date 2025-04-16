@@ -4,6 +4,13 @@ const extCategorySchema = new mongoose.Schema(
   {
     name: String,
     image: String,
+    price: Number,
+    description: String,
+    stars: {
+      type: Number,
+      min: 1,
+      max: 5,
+    },
     categoryId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "categoryModel",
@@ -16,5 +23,9 @@ const extCategorySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+
 const extCategoryModel = mongoose.model("extCategoryModel", extCategorySchema);
 module.exports = extCategoryModel;
+
+
+

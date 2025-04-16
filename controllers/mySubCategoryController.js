@@ -16,10 +16,10 @@ module.exports.createSubCat = async (req, res) => {
 
     await newSubCat.save();
     console.log("Sub category created...!");
-    res.redirect("/form");
+    res.redirect("/admin/form");
   } catch (error) {
     console.log("Error creating sub-category:", error.message);
-    res.redirect("/form");
+    res.redirect("/admin/form");
   }
 };
 
@@ -28,9 +28,9 @@ module.exports.delSubCat = async (req, res) => {
     const { id } = req.params;
     await subCategoryModel.findByIdAndDelete(id);
     console.log("sub category deleted....!");
-    res.redirect("/form");
+    res.redirect("/admin/form");
   } catch (error) {
     console.log(error.message);
-    res.redirect("/form");
+    res.redirect("/admin/form");
   }
 };

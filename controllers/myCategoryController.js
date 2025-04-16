@@ -10,9 +10,9 @@ module.exports.addCat = async (req, res) => {
       image: req.file.path,
     });
 
-    return res.redirect("/form");
+    return res.redirect("/admin/form");
   } catch (error) {
-    return res.redirect("/form");
+    return res.redirect("/admin/form");
   }
 };
 
@@ -25,8 +25,8 @@ module.exports.delCat = async (req, res) => {
 
 
     fs.unlinkSync(cat.image);
-    return res.redirect("/form");
+    return res.redirect("/admin/form");
   } catch (error) {
-    return res.redirect("/form");
+    return res.redirect("/admin/form");
   }
 };
