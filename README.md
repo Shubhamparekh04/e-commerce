@@ -79,7 +79,7 @@ E-COMMERCE/
 
 ### 🔷 Home Page
 
-![Home Page](E:\Repositories\Node js\E-commerce\public\screenshot\homescreen.png)
+![Home Page](public/screenshot/homescreen.png)
 
 ### 🔷 Sub-Category Products
 
